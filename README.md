@@ -21,7 +21,7 @@ This system allows users to register, log in securely using JWT tokens, and perf
 - **Environment Config:** python-dotenv
 - **Security:** DRF permissions + rate limiting
 - **Testing:** Django `APITestCase`
-- *Deplyoment:** Render `Production`
+- **Deplyoment:** Render `Production`
 
 ---
 
