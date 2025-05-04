@@ -20,9 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
  
 import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
-}
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+# }
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -153,8 +153,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
 SECRET_KEY="()37lz0cgjs(&+e7s@3w$ld1)i4doy31jz*%x+p60u8#2cc!o0"
 
 
@@ -170,4 +168,16 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT'),
     }
+}
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'Enter JWT token like: Bearer <your_token>',
+        }
+    },
 }
