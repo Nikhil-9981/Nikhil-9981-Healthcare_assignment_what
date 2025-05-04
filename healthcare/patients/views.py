@@ -10,7 +10,10 @@ class PatientViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return Patient.objects.none()
         return Patient.objects.filter(owner=self.request.user)
+
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
