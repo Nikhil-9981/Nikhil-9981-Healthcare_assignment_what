@@ -187,8 +187,7 @@ Enabled via DRF settings:
 - `user`: 1000 requests/day
 - `anon`: 50 requests/day
 
-Modify in `settings.py` under `DEFAULT_THROTTLE_RATES`.
-
+ 
 ---
 
 ## 📁 Folder Structure (Important for Submission)
