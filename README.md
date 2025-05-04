@@ -11,6 +11,8 @@ This system allows users to register, log in securely using JWT tokens, and perf
 
 ---
 
+Note : - **On deployed version I am using free tier of Render , So I can connect to database postgres but cannot run migrations so authentication and other feeatures wil cause error on live verison but it is working well locally.**
+
 ## 🧰 Tech Stack
 
 - **Backend Framework:** Django 4+
