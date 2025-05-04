@@ -18,11 +18,11 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
  
-#import dj_database_url
+import dj_database_url
 
-# DATABASES = {
-#     'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
-# }
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -159,16 +159,16 @@ SECRET_KEY="()37lz0cgjs(&+e7s@3w$ld1)i4doy31jz*%x+p60u8#2cc!o0"
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT'),
+#     }
+# }
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
