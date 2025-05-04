@@ -119,25 +119,35 @@ DB_PORT=5432
 ### 🧪 Local Development Setup
 
 ```bash
-# Clone the repo
-git clone <your-repo-url>
-cd healthcare
+# 1️⃣ Clone the repo from GitHub
+git clone https://github.com/Nikhil-9981/Nikhil-9981-Healthcare_assignment_what.git
 
-# Create virtual environment
+# 2️⃣ Navigate into the main folder
+cd Nikhil-9981-Healthcare_assignment_what
+
+# 3️⃣ Create and activate a virtual environment
 python -m venv venv
 source venv/bin/activate
 
-# Install dependencies
+# 4️⃣ Install dependencies
 pip install -r requirements.txt
 
-# Configure .env
-cp .env.example .env  # and fill in the details
+# 5️⃣ Configure environment variables
+cp .env.example .env  # Then open .env and add DB credentials + secret key
 
-# Apply migrations
+# 6️⃣ Move into the Django project folder
+cd healthcare
+
+# 7️⃣ Apply migrations
+python manage.py makemigrations
 python manage.py migrate
 
-# Run server
+# 8️⃣ (Optional) Create a superuser for admin access
+python manage.py createsuperuser
+
+# 9️⃣ Start the development server
 python manage.py runserver
+
 ```
 
 ---
@@ -182,31 +192,70 @@ Modify in `settings.py` under `DEFAULT_THROTTLE_RATES`.
 ## 📁 Folder Structure (Important for Submission)
 
 ```
-Healthcare_Assignment/
+```Healthcare_Assignment/
 │
-├── healthcare/             # Django project root
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+├── healthcare/                        # Django project root
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py                    # Main settings with dotenv support
+│   ├── urls.py                        # Root URL configuration with Swagger
+│   ├── wsgi.py
 │
-├── patients/               # App for patient model + views
-│   └── tests.py
+├── patients/                          # Patient management app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py                      # Patient model
+│   ├── serializers.py
+│   ├── views.py                       # PatientViewSet
+│   ├── tests.py                       # DRF API test cases
+│   └── migrations/
+│       ├── __init__.py
+│       └── 0001_initial.py
 │
-├── doctors/                # App for doctor model + views
-│   └── tests.py
+├── doctors/                           # Doctor management app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py                      # Doctor model
+│   ├── serializers.py
+│   ├── views.py                       # DoctorViewSet
+│   ├── tests.py
+│   └── migrations/
+│       ├── __init__.py
+│       └── 0001_initial.py
 │
-├── mappings/               # App for doctor-patient mapping
-│   └── tests.py
+├── mappings/                          # Doctor-patient mapping app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py                      # Mapping model
+│   ├── serializers.py
+│   ├── views.py                       # MappingViewSet
+│   ├── tests.py
+│   └── migrations/
+│       ├── __init__.py
+│       └── 0001_initial.py
 │
-├── users/                  # App for registration & JWT auth
-│   └── tests.py
+├── users/                             # User registration and authentication
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py                      # Optional custom user extension
+│   ├── serializers.py
+│   ├── views.py                       # RegisterView
+│   ├── tests.py
+│   └── migrations/
+│       ├── __init__.py
 │
-├── requirements.txt        # All pip dependencies
-├── .env.example            # Environment variable sample
-├── README.md               # This file
-└── manage.py
+├── manage.py                          # Django entry script
+├── requirements.txt                   # All dependencies
+├── .env                               # Your actual environment file (not committed)
+├── .env.example                       # Sample env file for deployment
+├── README.md                          # Full project documentation
+├── .gitignore                         # Git ignore rules (Python, Django, envs, etc.)
+
 ```
 
 ---
  
-# Nikhil-9981-Healthcare_assignment_what
