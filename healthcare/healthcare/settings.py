@@ -18,7 +18,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
  
-import dj_database_url
+#import dj_database_url
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-g*+lxupu#5j6z)wtp5qo+4*a6&o&#-h-*cr-#*l!#ic^z+6www
 DEBUG = True
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-     'drf_yasg',
+    'drf_yasg',
     'rest_framework_simplejwt',
     'users', 'patients', 'doctors', 'mappings',
 ]
@@ -170,13 +170,12 @@ DATABASES = {
     }
 }
 
-
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Bearer': {
             'type': 'apiKey',
-            'name': 'Authorization',
             'in': 'header',
+            'name': 'Authorization',
             'description': 'Enter JWT token like: Bearer <your_token>',
         }
     },

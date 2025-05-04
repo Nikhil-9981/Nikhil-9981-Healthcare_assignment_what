@@ -21,6 +21,7 @@ This system allows users to register, log in securely using JWT tokens, and perf
 - **Environment Config:** python-dotenv
 - **Security:** DRF permissions + rate limiting
 - **Testing:** Django `APITestCase`
+- **Deplyoment:** Render `Production`
 
 ---
 
@@ -149,6 +150,7 @@ python manage.py createsuperuser
 python manage.py runserver
 
 ```
+🚀 Deployed on Render: [Visit Live App](https://nikhil-9981-healthcare-assignment-what.onrender.com/)
 
 ---
 
